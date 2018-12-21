@@ -1,0 +1,4 @@
+Flask==1.0.2
+hazm==0.7.0
+requests==2.19.1
+tqdm==4.28.1
