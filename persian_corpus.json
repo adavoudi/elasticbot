@@ -7375,6 +7375,20 @@
       "tag": "greetings"
    },
    {
+      "input": "به سلامتی",
+      "output": [
+         "سلامت باشی"
+      ],
+      "tag": "greetings"
+   },
+   {
+      "input": "قربانت",
+      "output": [
+         "سرت سلامت"
+      ],
+      "tag": "greetings"
+   },
+   {
       "input": "کاری نداری",
       "output": [
          "مرسی خوش بگذره",
