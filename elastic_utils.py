@@ -15,6 +15,9 @@ class ElasticUtils():
             self.__add_corpus()
         self.normalizer = Normalizer()
 
+    def __normalize(self, text):
+        return ' '.join(word_tokenize(self.normalizer.normalize(text)))
+
     def __add_corpus(self):
         with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'persian_corpus.json'), 'r') as fh:
             corpus = json.load(fh)
@@ -90,7 +93,7 @@ class ElasticUtils():
 
 
     def respond(self, input_text, size=2):
-        input_text = self.normalizer.normalize(input_text)
+        input_text = self.__normalize(input_text)
         r = requests.post(self.base_path + '/dialogue/_search', json={
             "query": {
             "bool": {
@@ -124,8 +127,8 @@ class ElasticUtils():
              return None
 
     def learn(self, user_teach):
-        user_teach['input'] = self.normalizer.normalize(user_teach['input'])
-        user_teach['output'] = [self.normalizer.normalize(user_teach['output'])]
+        user_teach['input'] = self.__normalize(user_teach['input'])
+        user_teach['output'] = [self.__normalize(user_teach['output'])]
         user_teach['tag'] = 'user_teach'
         user_teach['exact_input'] = user_teach['input']
         requests.post(self.base_path + "/dialogue", json=user_teach)
