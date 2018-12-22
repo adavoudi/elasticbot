@@ -24,6 +24,8 @@ python main.py
 ```
 Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) and start chatting with the bot :)
 
+![sample image](imgs/sample.gif)
+
 ## Control commands
 You can add a new input-output pair to the knowledge base by sending the `/learn` command to the bot and following the on-screen instructions. To stop the learning mode, send `/stop` command. 
 
